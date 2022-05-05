@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style/style.css">
   <title>Vue Hello</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -11,10 +12,43 @@
 <body>
   
   <div id="root">
-    <h1>{{ title }}</h1>
-    <input type="text" placeholder="Inserisci un messaggio" v-model="title">
+    <div class="container">
+      <h1>{{ title }}</h1>
+      <img :src="image" alt="" :width="imageWidth" :height="imageHeight">
+    </div>
 
-  </div>
+    <div class="input">
+      <div>
+        <label for="text">Scrivi un testo da inserire</label>
+        <input type="text" id="text" v-model="title">
+      </div>
+
+      <div>
+        <label for="img">Url dell'immagine da inserire</label>
+        <input type="text" id="img" v-model="image">
+      </div>
+
+      <div class="image-controls">
+        <h2>Controlla le dimensioni dell'immagine</h2>
+  
+        <div>
+          <label for="width-input">Larghezza</label>
+          <input type="number" name="width-input" id="width-input" v-model="imageWidth">
+        </div>
+  
+        <div>
+          <label for="height-input">Altezza</label>
+          <input type="number" name="height-input" id="height-input" v-model="imageHeight">
+        </div>
+
+        <button @click="resetImage">Reset</button>
+      </div>
+
+    </div>
+
+    
+
+  </div> <!-- //root-->
 
   <script src="js/script.js" type="text/javascript"></script>
 </body>
